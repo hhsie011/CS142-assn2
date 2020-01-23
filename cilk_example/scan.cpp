@@ -26,6 +26,11 @@ int main(int argc, char** argv) {
 	
 	//for (int i = 0; i < n; i++) cout << B[i] << " ";
 	//cout << endl;
+  
+  delete []A;
+  delete []B;
+  delete []e1;
+  delete []e2;
 	
 	return 0;
 }

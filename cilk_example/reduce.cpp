@@ -28,6 +28,8 @@ int main(int argc, char* argv[]) {
 	t.stop();
 	cout << "time: " << t.get_total() << endl;
 	cout << x << endl;
+
+  delete []A;
 	
 	return 0;
 }
