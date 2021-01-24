@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -O2 -I../c++ -mcx16 -march=native -DCILK -fcilkplus -std=c++11
+CFLAGS = -O2 -mcx16 -march=native -DCILK -fcilkplus -std=c++11
 
 all:	reduce scan qsort
 

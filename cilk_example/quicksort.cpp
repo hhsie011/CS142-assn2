@@ -14,7 +14,6 @@ inline uint32_t hash32(uint32_t a) {
 	a = (a+0xd3a2646c) ^ (a<<9);
 	a = (a+0xfd7046c5) + (a<<3);
 	a = (a^0xb55a4f09) ^ (a>>16);
-	if (a<0) a = -a;
 	return a;
 }
 
@@ -39,6 +38,13 @@ int main(int argc, char** argv) {
 	
 	//for (int i = 0; i < n; i++) cout << A[i] << " ";
 	//cout << endl;
-	
+  
+  delete []A;
+  delete []A2;
+  delete []B;
+  delete []F;
+  delete []e1;
+  delete []e2;
+
 	return 0;
 }
