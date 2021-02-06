@@ -34,6 +34,12 @@ int main(int argc, char** argv) {
 	int ps = 0;
 	int leftSum = 0;
 	cilk_for (int i = 0; i < n; i++) A[i] = i + 1;
+
+	timer t0; t0.start();
+	int ans = 0;
+	for (int i = 0; i < n - 1; i++) ans += A[i];
+	t0.stop();
+	cout << ans << ". sequential running time = " << t0.get_total() << endl;
 	
 	timer t; t.start();
 	scan(A, n, ps, leftSum);
