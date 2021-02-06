@@ -6,7 +6,7 @@
 #include "get_time.h"
 using namespace std;
 
-int th = 1;
+int th = 128;
 
 int reduce(int* A, int n) {
 	if (n <= th) {
