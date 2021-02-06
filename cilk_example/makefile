@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -O2 -mcx16 -march=native -DCILK -fcilkplus -std=c++11
 
-all:	reduce scan qsort
+all:	reduce scan qsort parascan
 
 reduce:	reduce.cpp
 	$(CC) $(CFLAGS) -DNDEBUG reduce.cpp -o reduce

@@ -17,26 +17,31 @@ void scan(int* A, int n, int& ps, int& leftSum) {
     //     return ret;
 	// }
     if (n == 1) {
-        leftSum += A[0];
+        leftSum = A[0];
         A[0] = ps;
+	return;
     }
-    cilk_spawn scan(A, n/2, ps);
-    scan(A+n/2, n-n/2, ps);
+    cilk_spawn scan(A, n/2, ps, leftSum);
+    ps += leftSum;
+    scan(A+n/2, n-n/2, ps, leftSum);
     cilk_sync;
     return;
 }
 
 int main(int argc, char** argv) {
 	if (argc != 2) {
-		cout << "Usage: ./scan [num_elements]" << endl;
+		cout << "Usage: ./parascan [num_elements]" << endl;
 		return 0;
 	}
 	int n = atoi(argv[1]);
 	cout << n << endl;
 	int* A = new int[n];
+	int ps = 0;
+	int leftSum = 0;
+	cilk_for (int i = 0; i < n; i++) A[i] = i + 1;
 	
 	timer t; t.start();
-	scan(A, n, 0, 0);
+	scan(A, n, ps, leftSum);
 	t.stop(); cout << "time: " << t.get_total() << endl;
 	
 	for (int i = 0; i < n; i++) cout << A[i] << " ";
