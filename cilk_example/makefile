@@ -12,6 +12,8 @@ scan:	scan.cpp scan.h
 qsort:	quicksort.cpp qsort.h
 	$(CC) $(CFLAGS) -DNDEBUG quicksort.cpp -o qsort
 
+parascan: parascan.cpp
+	$(CC) $(CFLAGS) -DNDEBUG parascan.cpp -o parascan
 	
 clean:
-	rm -f reduce scan qsort
+	rm -f reduce scan qsort parascan
