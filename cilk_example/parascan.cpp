@@ -8,7 +8,7 @@ using namespace std;
 
 int th = 128;
 
-void scan(int* A, int n, int& ps, int& leftSum) {
+void scan(int* A, int n, int ps, int& leftSum) {
     // if (n <= th) {
     //     int ret = 0;
     //     for (int i = 0; i < n; i++) {
@@ -17,13 +17,13 @@ void scan(int* A, int n, int& ps, int& leftSum) {
     //     return ret;
 	// }
     if (n == 1) {
-        leftSum = A[0];
+        //leftSum = A[0];
         A[0] = ps;
 	return;
     }
     cilk_spawn scan(A, n/2, ps, leftSum);
-    ps += leftSum;
-    scan(A+n/2, n-n/2, ps, leftSum);
+    //ps += leftSum;
+    scan(A+n/2, n-n/2, ps + A[A+n/2-1], leftSum);
     cilk_sync;
     return;
 }
