@@ -36,8 +36,8 @@ int main(int argc, char** argv) {
 	qsort(A, 0, n);
 	t.stop(); cout << "time: " << t.get_total() << endl;
 	
-	//for (int i = 0; i < n; i++) cout << A[i] << " ";
-	//cout << endl;
+	for (int i = 0; i < n; i++) cout << A[i] << " ";
+	cout << endl;
   
   delete []A;
   delete []A2;

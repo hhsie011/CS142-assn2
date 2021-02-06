@@ -3,6 +3,8 @@
 
 using namespace std;
 
+int th = 512;
+
 int* A2;
 int* B;
 int* F;
@@ -10,7 +12,10 @@ int* e1;
 int* e2;
 
 void qsort(int* A, int start, int end) {
-	if (start >= end-1) return;
+	if (start >= end-th) {
+		sort(A + start, A + end);
+		return;
+	}
 	int pivot = A[start];
 
 	cilk_for (int i = start; i < end; i++) A2[i] = A[i];
